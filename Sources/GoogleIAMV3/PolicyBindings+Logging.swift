@@ -75,14 +75,14 @@ extension Clients {
 
     public func getPolicyBinding(
       request: GetPolicyBindingRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.PolicyBinding {
+    ) async throws -> GoogleIAMV3.PolicyBinding {
       try await self._intercept(
         request: request,
         options: options,
         name: "getPolicyBinding",
         action: {
           (r: GetPolicyBindingRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleIamV3.PolicyBinding
+            -> GoogleIAMV3.PolicyBinding
           in
           return try await self.inner.getPolicyBinding(request: r, options: o)
         })
@@ -120,14 +120,14 @@ extension Clients {
 
     public func listPolicyBindings(
       request: ListPolicyBindingsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.ListPolicyBindingsResponse {
+    ) async throws -> GoogleIAMV3.ListPolicyBindingsResponse {
       try await self._intercept(
         request: request,
         options: options,
         name: "listPolicyBindings",
         action: {
           (r: ListPolicyBindingsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleIamV3.ListPolicyBindingsResponse
+            -> GoogleIAMV3.ListPolicyBindingsResponse
           in
           return try await self.inner.listPolicyBindings(request: r, options: o)
         })
@@ -135,14 +135,14 @@ extension Clients {
 
     public func searchTargetPolicyBindings(
       request: SearchTargetPolicyBindingsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.SearchTargetPolicyBindingsResponse {
+    ) async throws -> GoogleIAMV3.SearchTargetPolicyBindingsResponse {
       try await self._intercept(
         request: request,
         options: options,
         name: "searchTargetPolicyBindings",
         action: {
           (r: SearchTargetPolicyBindingsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleIamV3.SearchTargetPolicyBindingsResponse
+            -> GoogleIAMV3.SearchTargetPolicyBindingsResponse
           in
           return try await self.inner.searchTargetPolicyBindings(request: r, options: o)
         })

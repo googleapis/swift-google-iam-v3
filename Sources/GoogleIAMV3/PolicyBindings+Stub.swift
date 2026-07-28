@@ -31,7 +31,7 @@ extension Clients {
 
     func getPolicyBinding(
       request: GetPolicyBindingRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.PolicyBinding
+    ) async throws -> GoogleIAMV3.PolicyBinding
 
     func updatePolicyBinding(
       request: UpdatePolicyBindingRequest, options: GoogleCloudGax.RequestOptions
@@ -43,11 +43,11 @@ extension Clients {
 
     func listPolicyBindings(
       request: ListPolicyBindingsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.ListPolicyBindingsResponse
+    ) async throws -> GoogleIAMV3.ListPolicyBindingsResponse
 
     func searchTargetPolicyBindings(
       request: SearchTargetPolicyBindingsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.SearchTargetPolicyBindingsResponse
+    ) async throws -> GoogleIAMV3.SearchTargetPolicyBindingsResponse
 
     func getOperation(
       request: GoogleLongrunning.GetOperationRequest, options: GoogleCloudGax.RequestOptions
@@ -92,7 +92,7 @@ extension Clients {
 
     public func getPolicyBinding(
       request: GetPolicyBindingRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.PolicyBinding {
+    ) async throws -> GoogleIAMV3.PolicyBinding {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -107,7 +107,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleIamV3.PolicyBinding.self, from: data)
+        GoogleIAMV3.PolicyBinding.self, from: data)
     }
 
     public func updatePolicyBinding(
@@ -164,7 +164,7 @@ extension Clients {
 
     public func listPolicyBindings(
       request: ListPolicyBindingsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.ListPolicyBindingsResponse {
+    ) async throws -> GoogleIAMV3.ListPolicyBindingsResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -183,12 +183,12 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleIamV3.ListPolicyBindingsResponse.self, from: data)
+        GoogleIAMV3.ListPolicyBindingsResponse.self, from: data)
     }
 
     public func searchTargetPolicyBindings(
       request: SearchTargetPolicyBindingsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.SearchTargetPolicyBindingsResponse {
+    ) async throws -> GoogleIAMV3.SearchTargetPolicyBindingsResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -207,7 +207,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleIamV3.SearchTargetPolicyBindingsResponse.self, from: data)
+        GoogleIAMV3.SearchTargetPolicyBindingsResponse.self, from: data)
     }
 
     public func getOperation(

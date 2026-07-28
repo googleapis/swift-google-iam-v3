@@ -31,7 +31,7 @@ extension Clients {
 
     func getPrincipalAccessBoundaryPolicy(
       request: GetPrincipalAccessBoundaryPolicyRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.PrincipalAccessBoundaryPolicy
+    ) async throws -> GoogleIAMV3.PrincipalAccessBoundaryPolicy
 
     func updatePrincipalAccessBoundaryPolicy(
       request: UpdatePrincipalAccessBoundaryPolicyRequest, options: GoogleCloudGax.RequestOptions
@@ -43,12 +43,12 @@ extension Clients {
 
     func listPrincipalAccessBoundaryPolicies(
       request: ListPrincipalAccessBoundaryPoliciesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.ListPrincipalAccessBoundaryPoliciesResponse
+    ) async throws -> GoogleIAMV3.ListPrincipalAccessBoundaryPoliciesResponse
 
     func searchPrincipalAccessBoundaryPolicyBindings(
       request: SearchPrincipalAccessBoundaryPolicyBindingsRequest,
       options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.SearchPrincipalAccessBoundaryPolicyBindingsResponse
+    ) async throws -> GoogleIAMV3.SearchPrincipalAccessBoundaryPolicyBindingsResponse
 
     func getOperation(
       request: GoogleLongrunning.GetOperationRequest, options: GoogleCloudGax.RequestOptions
@@ -94,7 +94,7 @@ extension Clients {
 
     public func getPrincipalAccessBoundaryPolicy(
       request: GetPrincipalAccessBoundaryPolicyRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.PrincipalAccessBoundaryPolicy {
+    ) async throws -> GoogleIAMV3.PrincipalAccessBoundaryPolicy {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -109,7 +109,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleIamV3.PrincipalAccessBoundaryPolicy.self, from: data)
+        GoogleIAMV3.PrincipalAccessBoundaryPolicy.self, from: data)
     }
 
     public func updatePrincipalAccessBoundaryPolicy(
@@ -168,7 +168,7 @@ extension Clients {
 
     public func listPrincipalAccessBoundaryPolicies(
       request: ListPrincipalAccessBoundaryPoliciesRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.ListPrincipalAccessBoundaryPoliciesResponse {
+    ) async throws -> GoogleIAMV3.ListPrincipalAccessBoundaryPoliciesResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.parent as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.parent' is not set or is empty")
@@ -186,13 +186,13 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleIamV3.ListPrincipalAccessBoundaryPoliciesResponse.self, from: data)
+        GoogleIAMV3.ListPrincipalAccessBoundaryPoliciesResponse.self, from: data)
     }
 
     public func searchPrincipalAccessBoundaryPolicyBindings(
       request: SearchPrincipalAccessBoundaryPolicyBindingsRequest,
       options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.SearchPrincipalAccessBoundaryPolicyBindingsResponse {
+    ) async throws -> GoogleIAMV3.SearchPrincipalAccessBoundaryPolicyBindingsResponse {
       let path = try { () throws -> Swift.String in
         guard let pathVariable0 = request.name as Swift.String?, !pathVariable0.isEmpty else {
           throw GoogleCloudGax.RequestError.binding("'request.name' is not set or is empty")
@@ -210,7 +210,7 @@ extension Clients {
       req.setValue(Clients.clientHeader, forHTTPHeaderField: "X-Goog-Api-Client")
       let (data, _) = try await self.inner.rpc(for: req).get()
       return try GoogleCloudWkt._ProtoJSONDecoder().decode(
-        GoogleIamV3.SearchPrincipalAccessBoundaryPolicyBindingsResponse.self, from: data)
+        GoogleIAMV3.SearchPrincipalAccessBoundaryPolicyBindingsResponse.self, from: data)
     }
 
     public func getOperation(

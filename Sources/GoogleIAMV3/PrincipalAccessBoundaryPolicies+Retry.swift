@@ -24,11 +24,13 @@ import GoogleRpc
 import GoogleCloudGax
 
 extension Clients {
-  final class PolicyBindingsRetry: PolicyBindingsStub {
-    let inner: any PolicyBindingsStub
+  final class PrincipalAccessBoundaryPoliciesRetry: PrincipalAccessBoundaryPoliciesStub {
+    let inner: any PrincipalAccessBoundaryPoliciesStub
     let options: GoogleCloudGax.ClientOptions
 
-    public init(_ inner: any PolicyBindingsStub, options: GoogleCloudGax.ClientOptions) {
+    public init(
+      _ inner: any PrincipalAccessBoundaryPoliciesStub, options: GoogleCloudGax.ClientOptions
+    ) {
       self.inner = inner
       self.options = options
     }
@@ -50,93 +52,95 @@ extension Clients {
       return try await loop.run(attempt: attempt)
     }
 
-    public func createPolicyBinding(
-      request: CreatePolicyBindingRequest, options: GoogleCloudGax.RequestOptions
+    public func createPrincipalAccessBoundaryPolicy(
+      request: CreatePrincipalAccessBoundaryPolicyRequest, options: GoogleCloudGax.RequestOptions
     ) async throws -> GoogleLongrunning.Operation {
       try await self._intercept(
         request: request,
         options: options,
         idempotent: false,
         action: {
-          (r: CreatePolicyBindingRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleLongrunning.Operation
+          (r: CreatePrincipalAccessBoundaryPolicyRequest, o: GoogleCloudGax.RequestOptions)
+            async throws -> GoogleLongrunning.Operation
           in
-          return try await self.inner.createPolicyBinding(request: r, options: o)
+          return try await self.inner.createPrincipalAccessBoundaryPolicy(request: r, options: o)
         })
     }
 
-    public func getPolicyBinding(
-      request: GetPolicyBindingRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.PolicyBinding {
+    public func getPrincipalAccessBoundaryPolicy(
+      request: GetPrincipalAccessBoundaryPolicyRequest, options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleIAMV3.PrincipalAccessBoundaryPolicy {
       try await self._intercept(
         request: request,
         options: options,
         idempotent: true,
         action: {
-          (r: GetPolicyBindingRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleIamV3.PolicyBinding
+          (r: GetPrincipalAccessBoundaryPolicyRequest, o: GoogleCloudGax.RequestOptions)
+            async throws -> GoogleIAMV3.PrincipalAccessBoundaryPolicy
           in
-          return try await self.inner.getPolicyBinding(request: r, options: o)
+          return try await self.inner.getPrincipalAccessBoundaryPolicy(request: r, options: o)
         })
     }
 
-    public func updatePolicyBinding(
-      request: UpdatePolicyBindingRequest, options: GoogleCloudGax.RequestOptions
+    public func updatePrincipalAccessBoundaryPolicy(
+      request: UpdatePrincipalAccessBoundaryPolicyRequest, options: GoogleCloudGax.RequestOptions
     ) async throws -> GoogleLongrunning.Operation {
       try await self._intercept(
         request: request,
         options: options,
         idempotent: false,
         action: {
-          (r: UpdatePolicyBindingRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleLongrunning.Operation
+          (r: UpdatePrincipalAccessBoundaryPolicyRequest, o: GoogleCloudGax.RequestOptions)
+            async throws -> GoogleLongrunning.Operation
           in
-          return try await self.inner.updatePolicyBinding(request: r, options: o)
+          return try await self.inner.updatePrincipalAccessBoundaryPolicy(request: r, options: o)
         })
     }
 
-    public func deletePolicyBinding(
-      request: DeletePolicyBindingRequest, options: GoogleCloudGax.RequestOptions
+    public func deletePrincipalAccessBoundaryPolicy(
+      request: DeletePrincipalAccessBoundaryPolicyRequest, options: GoogleCloudGax.RequestOptions
     ) async throws -> GoogleLongrunning.Operation {
       try await self._intercept(
         request: request,
         options: options,
         idempotent: false,
         action: {
-          (r: DeletePolicyBindingRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleLongrunning.Operation
+          (r: DeletePrincipalAccessBoundaryPolicyRequest, o: GoogleCloudGax.RequestOptions)
+            async throws -> GoogleLongrunning.Operation
           in
-          return try await self.inner.deletePolicyBinding(request: r, options: o)
+          return try await self.inner.deletePrincipalAccessBoundaryPolicy(request: r, options: o)
         })
     }
 
-    public func listPolicyBindings(
-      request: ListPolicyBindingsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.ListPolicyBindingsResponse {
+    public func listPrincipalAccessBoundaryPolicies(
+      request: ListPrincipalAccessBoundaryPoliciesRequest, options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleIAMV3.ListPrincipalAccessBoundaryPoliciesResponse {
       try await self._intercept(
         request: request,
         options: options,
         idempotent: true,
         action: {
-          (r: ListPolicyBindingsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleIamV3.ListPolicyBindingsResponse
+          (r: ListPrincipalAccessBoundaryPoliciesRequest, o: GoogleCloudGax.RequestOptions)
+            async throws -> GoogleIAMV3.ListPrincipalAccessBoundaryPoliciesResponse
           in
-          return try await self.inner.listPolicyBindings(request: r, options: o)
+          return try await self.inner.listPrincipalAccessBoundaryPolicies(request: r, options: o)
         })
     }
 
-    public func searchTargetPolicyBindings(
-      request: SearchTargetPolicyBindingsRequest, options: GoogleCloudGax.RequestOptions
-    ) async throws -> GoogleIamV3.SearchTargetPolicyBindingsResponse {
+    public func searchPrincipalAccessBoundaryPolicyBindings(
+      request: SearchPrincipalAccessBoundaryPolicyBindingsRequest,
+      options: GoogleCloudGax.RequestOptions
+    ) async throws -> GoogleIAMV3.SearchPrincipalAccessBoundaryPolicyBindingsResponse {
       try await self._intercept(
         request: request,
         options: options,
         idempotent: true,
         action: {
-          (r: SearchTargetPolicyBindingsRequest, o: GoogleCloudGax.RequestOptions) async throws
-            -> GoogleIamV3.SearchTargetPolicyBindingsResponse
+          (r: SearchPrincipalAccessBoundaryPolicyBindingsRequest, o: GoogleCloudGax.RequestOptions)
+            async throws -> GoogleIAMV3.SearchPrincipalAccessBoundaryPolicyBindingsResponse
           in
-          return try await self.inner.searchTargetPolicyBindings(request: r, options: o)
+          return try await self.inner.searchPrincipalAccessBoundaryPolicyBindings(
+            request: r, options: o)
         })
     }
 
