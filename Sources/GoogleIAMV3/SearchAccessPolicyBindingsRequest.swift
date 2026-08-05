@@ -17,49 +17,35 @@
 import Foundation
 import GoogleCloudWkt
 
-/// Request message for ListPolicyBindings method.
-public struct ListPolicyBindingsRequest: Codable, Equatable, GoogleCloudWkt._AnyPackable,
+/// Request message for SearchAccessPolicyBindings rpc.
+public struct SearchAccessPolicyBindingsRequest: Codable, Equatable, GoogleCloudWkt._AnyPackable,
   Sendable
 {
-  /// Required. The parent resource, which owns the collection of policy
-  /// bindings.
-  ///
+  /// Required. The name of the access policy.
   /// Format:
-  ///
-  /// * `projects/{project_id}/locations/{location}`
-  /// * `projects/{project_number}/locations/{location}`
-  /// * `folders/{folder_id}/locations/{location}`
-  /// * `organizations/{organization_id}/locations/{location}`
-  public var parent: Swift.String = Swift.String()
+  ///  `organizations/{organization_id}/locations/{location}/accessPolicies/{access_policy_id}`
+  ///  `folders/{folder_id}/locations/{location}/accessPolicies/{access_policy_id}`
+  ///  `projects/{project_id}/locations/{location}/accessPolicies/{access_policy_id}`
+  ///  `projects/{project_number}/locations/{location}/accessPolicies/{access_policy_id}`
+  public var name: Swift.String = Swift.String()
 
   /// Optional. The maximum number of policy bindings to return. The service may
   /// return fewer than this value.
   ///
-  /// The default value is 50. The maximum value is 1000.
+  /// If unspecified, at most 50 policy bindings will be returned.
+  /// The maximum value is 1000; values above 1000 will be coerced to 1000.
   public var pageSize: Swift.Int32 = Swift.Int32()
 
-  /// Optional. A page token, received from a previous `ListPolicyBindings` call.
-  /// Provide this to retrieve the subsequent page.
+  /// Optional. A page token, received from a previous
+  /// `SearchAccessPolicyBindingsRequest` call. Provide this to
+  /// retrieve the subsequent page.
   ///
-  /// When paginating, all other parameters provided to `ListPolicyBindings` must
-  /// match the call that provided the page token.
+  /// When paginating, all other parameters provided to
+  /// `SearchAccessPolicyBindingsRequest` must match the call
+  /// that provided the page token.
   public var pageToken: Swift.String = Swift.String()
 
-  /// Optional. An expression for filtering the results of the request. Filter
-  /// rules are case insensitive. Some eligible fields for filtering are the
-  /// following:
-  ///
-  /// + `target`
-  /// + `policy`
-  ///
-  /// Some examples of filter queries:
-  ///
-  /// * `target:ex*`: The binding target's name starts with "ex".
-  /// * `target:example`: The binding target's name is `example`.
-  /// * `policy:example`: The binding policy's name is `example`.
-  public var filter: Swift.String = Swift.String()
-
-  /// Initialize a new instance of `ListPolicyBindingsRequest`.
+  /// Initialize a new instance of `SearchAccessPolicyBindingsRequest`.
   public init() {}
 
   /// Use `config` to return a new instance of this object, with some fields updated.
@@ -67,7 +53,7 @@ public struct ListPolicyBindingsRequest: Codable, Equatable, GoogleCloudWkt._Any
   /// Commonly used to initialize the value, for example:
   ///
   /// ```
-  /// let value = ListPolicyBindingsRequest().with { $0.parent = ... }
+  /// let value = SearchAccessPolicyBindingsRequest().with { $0.name = ... }
   /// ```
   public func with(_ config: (inout Self) throws -> Swift.Void) rethrows -> Self {
     var copy = self
@@ -76,7 +62,7 @@ public struct ListPolicyBindingsRequest: Codable, Equatable, GoogleCloudWkt._Any
   }
 
   public static var _anyTypeUrl: Swift.String {
-    return "type.googleapis.com/google.iam.v3.ListPolicyBindingsRequest"
+    return "type.googleapis.com/google.iam.v3.SearchAccessPolicyBindingsRequest"
   }
   public init(fromAny any: GoogleCloudWkt.`Any`) throws {
     self = try GoogleCloudWkt._slowAnyDeserialize(Self.self, from: any)
